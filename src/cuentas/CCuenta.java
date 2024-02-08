@@ -1,58 +1,62 @@
 package cuentas;
 
+/** Clase cuenta, proporciona funcionalidades de cuentas bancarias
+ * 
+ * @author Jordi Picalló Villalobos
+ */
 public class CCuenta {
 
-    /**
-     * @return the nombre
+    /** Método que devuelve el nombre
+     * @return Devuelve String del nombre
      */
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     * @param nombre the nombre to set
+    /** Método que establece un nuevo nombre
+     * @param nombre String que establece un nuevo nombre
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     * @return the cuenta
+    /** Método que devuelve la cuenta
+     * @return Devuelve String de la cuenta
      */
     public String getCuenta() {
         return cuenta;
     }
 
-    /**
-     * @param cuenta the cuenta to set
+    /** Método que establece un nuevo número de cuenta
+     * @param cuenta String que establece la cuenta
      */
     public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
-    /**
-     * @return the saldo
+    /** Método que devuelve el saldo
+     * @return Devuelve double del saldo
      */
     public double getSaldo() {
         return saldo;
     }
 
-    /**
-     * @param saldo the saldo to set
+    /** Método que establece un nuevo saldo
+     * @param saldo double que establece el nuevo saldo
      */
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 
-    /**
-     * @return the tipoInterés
+    /** Devuelve el tipo de interés
+     * @return double con el tipo de interés
      */
     public double getTipoInterés() {
         return tipoInterés;
     }
 
-    /**
-     * @param tipoInterés the tipoInterés to set
+    /** Método que establece un nuevo tipo de interés
+     * @param tipoInterés double que establece el nuevo tipo de interés
      */
     public void setTipoInterés(double tipoInterés) {
         this.tipoInterés = tipoInterés;
@@ -64,10 +68,20 @@ public class CCuenta {
     private double saldo;
     private double tipoInterés;
 
+    /** Constructor de la clase CCuenta
+     * 
+     */
     public CCuenta()
     {
     }
 
+    /** Constructor de la clase CCuenta con parámetros de entrada
+     * 
+     * @param nom String que establece el nombre.
+     * @param cue String que establece el número de cuenta.
+     * @param sal double que establece el saldo inicial.
+     * @param tipo double que establece el tipo de interés.
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         nombre =nom;
@@ -75,11 +89,20 @@ public class CCuenta {
         saldo=sal;
     }
 
+    /** Método que devuelve el saldo actual
+     * 
+     * @return double con el saldo actual de la cuenta.
+     */
     public double estado()
     {
         return getSaldo();
     }
 
+    /** Método que permite hacer ingresos en la cuenta
+     * 
+     * @param cantidad double con la cantidad a ingresar.
+     * @throws Exception lanza excepción si el saldo es negativo.
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -87,6 +110,11 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /** Método que permite retirar dinero de la cuenta
+     * 
+     * @param cantidad double con la cantidad a retirar.
+     * @throws Exception lanza una excepción si la cantidad es negativa.
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
